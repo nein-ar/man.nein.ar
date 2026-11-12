@@ -1,0 +1,510 @@
+/* QUIXOTIST SYSTEM STYLES */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap');
+
+:root {
+    --bg-color: #f4f4f6;
+    --border-color: #222;
+    --accent-color: #ffcc00; /* Primary Accent */
+    --text-main: #2b2b2b;
+    --window-bg: #ffffff;
+    --shadow: 4px 4px 0px 0px rgba(0,0,0,1);
+}
+
+body {
+    background-color: var(--bg-color);
+    background-image:
+        linear-gradient(45deg, #e5e7eb 25%, transparent 25%),
+        linear-gradient(-45deg, #e5e7eb 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #e5e7eb 75%),
+        linear-gradient(-45deg, transparent 75%, #e5e7eb 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    font-family: 'JetBrains Mono', 'Noto Sans JP', monospace;
+    image-rendering: pixelated;
+    cursor: url('/img/plan9/arrow.png'), auto;
+    cursor: image-set(url('/img/plan9/arrow.png') 1.6x), auto;
+}
+
+a, button, .btn-88x31, .nav-link {
+    cursor: url('/img/plan9/arrow.png'), pointer;
+    cursor: image-set(url('/img/plan9/arrow.png') 1.6x), pointer;
+}
+
+input, textarea, .code-block, pre {
+    cursor: url('/img/plan9/text.png'), text;
+    cursor: image-set(url('/img/plan9/text.png') 1.6x), text;
+}
+
+.cursor-wait, body.wait, .wait {
+    cursor: url('/img/plan9/left_ptr_watch01.png'), wait;
+    cursor: image-set(url('/img/plan9/left_ptr_watch01.png') 1.6x), wait;
+}
+
+.cursor-move, .draggable, .move {
+    cursor: url('/img/plan9/box.png'), move;
+    cursor: image-set(url('/img/plan9/box.png') 1.6x), move;
+}
+
+.cursor-crosshair, .crosshair {
+    cursor: url('/img/plan9/cross.png'), crosshair;
+    cursor: image-set(url('/img/plan9/cross.png') 1.6x), crosshair;
+}
+
+.cursor-help, .help {
+    cursor: url('/img/plan9/query.png'), help;
+    cursor: image-set(url('/img/plan9/query.png') 1.6x), help;
+}
+
+.cursor-not-allowed, .disabled, :disabled {
+    cursor: url('/img/plan9/deadmouse.png'), not-allowed;
+    cursor: image-set(url('/img/plan9/deadmouse.png') 1.6x), not-allowed;
+}
+
+.bunker-window {
+    background: var(--window-bg);
+    border: 2px solid var(--border-color);
+    box-shadow: var(--shadow);
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.window-title {
+    background: var(--border-color);
+    color: white;
+    padding: 2px 8px;
+    margin: -1rem -1rem 1rem -1rem;
+    font-size: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accent-bar {
+    height: 4px;
+    background: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+/* 88x31 Button Styles */
+.btn-88x31 {
+    width: 88px;
+    height: 31px;
+    border: 1px solid #000;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    text-transform: uppercase;
+    background: #eee;
+    margin: 2px;
+    cursor: pointer;
+    overflow: hidden;
+    color: inherit; /* Ensure link color inheritance */
+    text-decoration: none !important; /* No underline on buttons */
+}
+
+.btn-88x31:hover {
+    opacity: 0.8;
+}
+
+.marquee {
+    overflow: hidden;
+    white-space: nowrap;
+    background: #000;
+    color: #fff;
+    padding: 4px 0;
+    font-size: 12px;
+}
+
+.marquee-content {
+    display: inline-block;
+    animation: marquee 20s linear infinite;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+.nav-link {
+    display: block;
+    padding: 4px 0;
+    border-bottom: 1px dashed #ccc;
+    transition: all 0.2s;
+    color: inherit;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    background: var(--accent-color);
+    padding-left: 8px;
+    text-decoration: none;
+}
+
+.post {
+    border-left: 3px solid var(--border-color);
+    padding-left: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.post:last-child {
+    margin-bottom: 0;
+}
+
+/* WERX COMPATIBILITY FOR CODE BLOCKS */
+.code-block, pre {
+    background: #f8f8f8;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    font-size: 12px;
+    overflow-x: auto;
+    margin: 1rem 0;
+    position: relative;
+}
+
+.subdomain-tag {
+    background: #eee;
+    padding: 2px 6px;
+    border: 1px solid #000;
+    font-size: 10px;
+    margin-right: 4px;
+}
+
+/* Scanline effect */
+.scanline {
+    width: 100%;
+    height: 100px;
+    z-index: 9999;
+    background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(255,255,255,0.1) 50%, rgba(0,0,0,0) 100%);
+    opacity: 0.1;
+    position: fixed;
+    pointer-events: none;
+    animation: scanline 6s linear infinite;
+}
+
+@keyframes scanline {
+    0% { top: -100px; }
+    100% { top: 100%; }
+}
+
+h3.section-header {
+    font-size: 14px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--accent-color);
+    display: inline-block;
+    margin-bottom: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+/* Content Typography Overrides */
+article h1 { font-size: 2rem; font-weight: bold; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: -1px; }
+article h2 { font-size: 1.5rem; font-weight: bold; margin-top: 1.5rem; margin-bottom: 0.5rem; border-left: 4px solid var(--accent-color); padding-left: 10px; }
+article p { margin-bottom: 1em; line-height: 1.6; font-size: 0.9rem; }
+article ul { list-style: square; padding-left: 1.2rem; font-size: 0.9rem; }
+article a { text-decoration: underline; text-decoration-thickness: 2px; text-decoration-color: var(--accent-color); }
+article a:hover { background-color: var(--accent-color); color: black; }
+
+/* --- DOCUMENT / ACADEMIC HELPERS --- */
+
+/* Text Alignment & Typography */
+.doc-justify { text-align: justify; hyphens: auto; }
+.doc-center { text-align: center; }
+.doc-ragged-right { text-align: left; }
+
+.font-serif { font-family: 'Times New Roman', Times, serif; }
+.font-mono { font-family: 'JetBrains Mono', monospace; }
+
+/* Abstract Block (In-Content) */
+.doc-abstract {
+    margin: 2rem auto;
+    padding: 0 2rem;
+    font-size: 0.9em;
+    font-family: 'Times New Roman', Times, serif;
+}
+.doc-abstract strong {
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    margin-bottom: 0.5em;
+    letter-spacing: 0.1em;
+}
+
+/* Two Column Layout */
+.doc-columns-2 {
+    column-count: 2;
+    column-gap: 2rem;
+}
+.doc-columns-2 p {
+    margin-bottom: 1em; /* Ensure spacing in columns */
+}
+
+/* Figures & Captions */
+.figure-env {
+    margin: 2rem 0;
+    text-align: center;
+    page-break-inside: avoid;
+}
+.figure-caption {
+    margin-top: 0.5rem;
+    font-size: 0.85em;
+    color: #444;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+}
+.figure-caption strong {
+    font-style: normal;
+    font-weight: bold;
+    margin-right: 0.5em;
+}
+
+/* Dropcap */
+.dropcap::first-letter {
+    float: left;
+    font-size: 3.5em;
+    line-height: 0.8;
+    padding-top: 4px;
+    padding-right: 8px;
+    padding-left: 3px;
+    font-weight: bold;
+}
+
+/* --- TABLE OF CONTENTS STYLES --- */
+.toc-container nav ul {
+    list-style: none;
+    padding-left: 1rem;
+}
+
+.toc-container nav > ul {
+    padding-left: 0;
+}
+
+.toc-container nav li a {
+    text-decoration: none;
+    display: block;
+    padding: 2px 0;
+    color: inherit;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+}
+
+.toc-container nav li a:hover {
+    opacity: 1;
+    color: black;
+    background-color: var(--accent-color);
+}
+
+/* Highlighting Logic: Only highlight leaf nodes that are the last of their kind in a sequence */
+/* In CSS terms: an LI that has no UL child AND no subsequent LI sibling */
+.toc-container nav li:not(:has(ul)):not(:has(+ li)) > a {
+    opacity: 1;
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-decoration-color: var(--accent-color);
+    text-underline-offset: 3px;
+}
+
+/* --- PREVIEW / POPUP STYLES --- */
+.prev-link-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.prev-popup {
+    position: absolute !important;
+    z-index: 9999 !important;
+    display: none !important;
+    width: 320px !important;
+    max-width: 90vw !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    pointer-events: none;
+    left: 0;
+    top: 100%;
+}
+
+.prev-link-wrapper:hover .prev-popup {
+    display: block !important;
+    pointer-events: auto !important;
+}
+
+.prev-content img {
+    image-rendering: pixelated;
+}
+
+.prev-iframe {
+    background: white;
+}
+
+.prev-text {
+    word-break: break-word;
+}
+
+/* PRINT STYLES & UTILITIES */
+@media print {
+    /* Global Reset */
+    body {
+        background: white !important;
+        color: black !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        background-image: none !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    /* Hide non-essential UI elements */
+    .scanline,
+    .btn-88x31,
+    .marquee,
+    .accent-bar.no-print,
+    .no-print,
+    footer.no-print,
+    body > nav {
+        display: none !important;
+    }
+
+    /* --- PAGE ISOLATION LOGIC --- */
+    @page cover {
+        margin: 1cm;
+    }
+
+    @page document {
+        margin: 1.5cm;
+    }
+
+    .print-main-container {
+        page: document;
+    }
+
+    .print-cover-container {
+        page: cover;
+        display: block !important;
+        break-after: page !important;
+        page-break-after: always !important;
+        position: relative;
+    }
+
+    /* THE BORDER FIX: Encompass the entire cover content */
+    .cover-bunker-wrapper {
+        border: 4px solid black !important;
+        height: auto !important;
+        min-height: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 2cm !important;
+        background: white !important;
+        position: relative !important;
+    }
+
+    /* Metadata at Bottom INSIDE the border */
+    .cover-metadata {
+        margin-top: auto !important; /* Push to bottom of flex container */
+        padding-top: 2rem !important;
+        border-top: 2px solid black !important;
+    }
+
+    /* THE SPECIAL TAG: Custom content migrates to middle of cover */
+    .on-cover {
+        display: block !important;
+        margin: 2cm 0 !important;
+    }
+
+    /* Header in Print: Compact and Fixed Size */
+    .print-header {
+        margin-top: 1cm !important;
+        margin-bottom: 2rem !important;
+        padding-bottom: 0.5rem !important;
+        border-bottom: 2px solid black !important;
+        flex-direction: row !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        gap: 1.5rem !important;
+        display: flex !important;
+        break-after: avoid !important;
+        page-break-after: avoid !important;
+    }
+
+    .print-header .bunker-window {
+        padding: 2px !important;
+        border: 2px solid black !important;
+        box-shadow: 2px 2px 0px 0px black !important;
+        margin: 0 !important;
+        width: 80px !important;
+        height: 80px !important;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .print-header img {
+        width: 70px !important;
+        height: 70px !important;
+        filter: grayscale(100%);
+        object-fit: cover;
+    }
+
+    .print-header h1 {
+        font-size: 1.8rem !important;
+        line-height: 1 !important;
+        margin-bottom: 4px !important;
+    }
+
+    .print-header p {
+        font-size: 0.8rem !important;
+    }
+
+    .print-full-width {
+        width: auto !important;
+        max-width: none !important;
+    }
+
+    /* Reset Layout Containers for Print */
+    .max-w-6xl, .container, .mx-auto {
+        max-width: none !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* Restore Bunker Windows for Print BUT avoid double borders on main container */
+    .bunker-window {
+        border: 2px solid black !important;
+        box-shadow: 2px 2px 0px 0px black !important;
+        margin-bottom: 0 !important;
+        padding: 1rem !important;
+        background: white !important;
+        box-sizing: border-box !important;
+    }
+
+    .post {
+        margin-bottom: 0 !important;
+        border-left: 3px solid black !important;
+    }
+
+    .print-no-border {
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+    }
+
+    .prev-popup {
+        display: none !important;
+    }
+
+    /* Homepage Print Overrides: Show UI elements when printing the home dashboard */
+    .page-home .btn-88x31 {
+        display: inline-flex !important;
+    }
+    .page-home .marquee {
+        display: block !important;
+    }
+}
+
+/* Screen Only Utility */
+@media screen {
+    .print-only {
+        display: none !important;
+    }
+}

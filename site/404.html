@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 // MAN.NEIN.AR</title>
+
+    <link rel="icon" href="/img/favicon.ico" sizes="any">
+    <link rel="icon" href="/img/favicon.png" type="image/png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="/css/quixotist.css" rel="stylesheet">
+    <link href="/css/SerenityOS-Emoji.css" rel="stylesheet" type="text/css">
+    <script defer src="/js/notfound.js"></script>
+</head>
+<body class="page-single p-4 md:p-8">
+    <div class="scanline"></div>
+    <div class="max-w-6xl mx-auto">
+        <div class="bunker-window min-h-[400px] border-2 border-red-600">
+            <div class="window-title bg-red-600 text-white font-bold">
+                <span>FATAL_EXCEPTION</span><span>0x00000404</span>
+            </div>
+
+            <div class="p-8 flex flex-col items-center justify-center text-center h-full space-y-8">
+                <div class="space-y-2">
+                    <h1 class="text-8xl font-mono font-bold tracking-tighter text-red-600 opacity-80">404</h1>
+                    <p class="text-xs uppercase tracking-[0.5em] font-bold">Segment Not Found</p>
+                </div>
+
+                <div class="w-full max-w-lg bg-black text-green-500 font-mono text-xs p-4 text-left border-t-4 border-red-600 shadow-lg break-all">
+                    <p>
+                        <span class="text-white">root@nein-ar:~$</span> wget
+                        <span id="cmd-url"></span>
+                    </p>
+
+                    <div class="text-gray-500 mt-2 space-y-1">
+                        <p>
+                            --<span class="curr-time"></span>--
+                            <span id="log-url"></span>
+                        </p>
+                        <p>Resolving host... 127.0.0.1</p>
+                        <p>Connecting to 127.0.0.1... connected.</p>
+                        <p>
+                            HTTP request sent, awaiting response...
+                            <span class="text-red-500 font-bold">404 Not Found</span>
+                        </p>
+                        <p class="text-red-500 font-bold mt-2">
+                            <span class="curr-time"></span> ERROR 404: Not Found.
+                        </p>
+                    </div>
+
+                    <p class="mt-4 text-gray-500">
+                        Dump trace:<br>
+                        0x00000000 00 00 00 00 00 00 00 00 ........<br>
+                        0x00000010 DE AD BE EF FF FF FF FF ....????<br>
+                    </p>
+
+                    <p class="mt-2 animate-pulse">&gt; _</p>
+                </div>
+
+                <div class="flex gap-4">
+                    <a href="/" class="btn-88x31 bg-gray-200 hover:bg-black hover:text-white border-2 border-black flex items-center justify-center font-bold text-xs uppercase tracking-wider px-6 py-2 transition-all">System Reboot</a>
+                    <a href="javascript:history.back()" class="btn-88x31 bg-gray-200 hover:bg-red-600 hover:text-white border-2 border-black flex items-center justify-center font-bold text-xs uppercase tracking-wider px-6 py-2 transition-all">Retry</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
