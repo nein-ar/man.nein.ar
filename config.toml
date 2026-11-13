@@ -1,0 +1,18 @@
+title = "MAN.NEIN.AR"
+description = "man pages for us, my people"
+base_url = "https://man.nein.ar"
+language_code = "en-us"
+output_dir = "pub"
+cache_dir = ".cache"
+
+# Systems to include (short names from manned.org, e.g. alpine-3.23)
+systems = ["alpine-3.23"]
+
+# Locales to include (names from manned.org locales table)
+locales = ["en"]
+
+# Only the latest package version per package
+latest_only = true
+
+# Manned.org dump base URL
+dump_url = "https://dl.manned.org"

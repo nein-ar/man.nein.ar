@@ -1,1 +1,4 @@
 pub/
+data/
+.cache/
+gendoc

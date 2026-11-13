@@ -1,8 +1,10 @@
-name: Deploy static content to Pages
+name: Deploy manpages to Pages
 
 on:
   push:
     branches: ["master"]
+  schedule:
+    - cron: "0 0 * * 0"
   workflow_dispatch:
 
 permissions:
@@ -24,11 +26,31 @@ jobs:
       - name: Checkout GitHub repo
         uses: actions/checkout@v7
 
-      - name: Copy site to pub
-        run: |
-          rm -rf ./pub
-          mkdir -p ./pub
-          cp -r ./site/. ./pub/
+      - name: Setup Go
+        uses: actions/setup-go@v6
+        with:
+          go-version-file: go.mod
+
+      - name: Install system dependencies
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq mandoc zstd
+
+      - name: Restore render cache
+        uses: actions/cache/restore@v4
+        with:
+          path: .cache
+          key: man-render-${{ runner.os }}
+
+      - name: Run manpage generator
+        run: go run ./cmd/gendoc config.toml
+
+      - name: Save render cache
+        uses: actions/cache/save@v4
+        with:
+          path: .cache
+          key: man-render-${{ runner.os }}
+
+      - name: Copy static assets to pub
+        run: cp -r ./site/. ./pub/
 
       - name: Setup Pages
         uses: actions/configure-pages@v6
